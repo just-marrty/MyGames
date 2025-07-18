@@ -58,6 +58,12 @@ const GamesSection = () => {
               <span className="feature-tag">iCloud Leaderboards</span>
               <span className="feature-tag">No Ads</span>
             </div>
+            <div className="game-images">
+              <img src="/images/qr-code.png" alt="QR kód" className="qr-image" />
+              <a href="https://apple.co/4nPHAkI" target="_blank" rel="noopener noreferrer">
+                <img src="/images/black.svg" alt="Black logo" className="black-image" />
+              </a>
+            </div>
             <div className="game-links">
               <button 
                 className="privacy-link"
@@ -88,4 +94,4 @@ const GamesSection = () => {
   );
 };
 
-export default GamesSection; 
+export default GamesSection;
