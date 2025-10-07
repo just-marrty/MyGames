@@ -43,7 +43,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <p className="footer-text">
-          © 2025 <a href="https://www.moje-webovka.cz/index.en.html" target="_blank" rel="noopener noreferrer" className="footer-link">just_marrty</a> iOS Developer & Game Creator
+          © 2025 <a href="https://www.moje-webovka.cz/index.en.html" target="_blank" rel="noopener noreferrer" className="footer-link">just_marrty</a> Indie Game & Web Developer
         </p>
         <p className="footer-subtext">
           Crafting engaging mobile experiences

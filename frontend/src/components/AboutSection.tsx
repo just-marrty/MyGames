@@ -15,12 +15,12 @@ const AboutSection = () => (
           </p>
           <p className="about-text">
             In addition to web development, I also design and develop mobile games and applications for iOS.
-            This page is dedicated to my work in iOS development.
+            This page is dedicated to my work in iOS & Unity development.
           </p>
           <div className="skills">
             <span className="skill-tag">iOS Development</span>
+            <span className="skill-tag">Unity Development</span>
             <span className="skill-tag">Web&Apps Development</span>
-            <span className="skill-tag">UI/UX Design</span>
           </div>
         </div>
       </div>

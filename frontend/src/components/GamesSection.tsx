@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import './GamesSection.css';
 
-const PrivacyPolicyModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+const PrivacyPolicyModal = (
+  { isOpen, onClose, gameName, lastUpdatedDate }:
+  { isOpen: boolean; onClose: () => void; gameName: string; lastUpdatedDate: string }
+) => {
   if (!isOpen) return null;
 
   return (
@@ -9,13 +12,13 @@ const PrivacyPolicyModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () 
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>×</button>
         <div className="modal-body">
-          <h2>Snake Game – Privacy Policy</h2>
-          <p className="modal-date">Last updated: July 7, 2025</p>
+          <h2>{gameName} – Privacy Policy</h2>
+          <p className="modal-date">Last updated: {lastUpdatedDate}</p>
           
           <p>This game respects your privacy. We do not collect, store, or share any personal information.</p>
           
           <h3>What we collect</h3>
-          <p>Snake Game does not collect any personally identifiable information (PII). However, the game may use Apple's CloudKit to store your in-game data, such as:</p>
+          <p>{gameName} does not collect any personally identifiable information (PII). However, the game may use Apple's CloudKit to store your in-game data, such as:</p>
           <ul>
             <li>Your nickname (if entered)</li>
             <li>Your game score or leaderboard ranking</li>
@@ -23,10 +26,10 @@ const PrivacyPolicyModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () 
           <p>This data is stored only on your iCloud account and is not shared with us or any third party.</p>
           
           <h3>Third-party services</h3>
-          <p>Snake Game does not use any third-party advertising, analytics, or tracking services.</p>
+          <p>{gameName} does not use any third-party advertising, analytics, or tracking services.</p>
           
           <h3>Children's privacy</h3>
-          <p>Snake Game is suitable for all ages and does not knowingly collect data from children under 13.</p>
+          <p>{gameName} is suitable for all ages and does not knowingly collect data from children under 13.</p>
           
           <h3>Contact</h3>
           <p>If you have any questions about this privacy policy, feel free to contact us at:</p>
@@ -38,7 +41,8 @@ const PrivacyPolicyModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () 
 };
 
 const GamesSection = () => {
-  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
+  const [isSnakePrivacyModalOpen, setIsSnakePrivacyModalOpen] = useState(false);
+  const [isScaryPrivacyModalOpen, setIsScaryPrivacyModalOpen] = useState(false);
 
   return (
     <section id="games" className="games-section">
@@ -57,6 +61,7 @@ const GamesSection = () => {
               <span className="feature-tag">Retro Gaming</span>
               <span className="feature-tag">iCloud Leaderboards</span>
               <span className="feature-tag">No Ads</span>
+              <span className="feature-tag">SwiftUI</span>
             </div>
             <div className="game-images">
               <img src="/images/qr-code.png" alt="QR kód" className="qr-image" />
@@ -67,7 +72,36 @@ const GamesSection = () => {
             <div className="game-links">
               <button 
                 className="privacy-link"
-                onClick={() => setIsPrivacyModalOpen(true)}
+                onClick={() => setIsSnakePrivacyModalOpen(true)}
+              >
+                Privacy Policy
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="game-card">
+          <div className="game-content">
+            <h3 className="game-title">Scary Fly: Spooky Halloween</h3>
+            <p className="game-description">
+              Enter a spooky world by using motion controls to guide your Fly through eerie obstacles. Compete with others and become the best player!
+            </p>
+            <div className="game-features">
+              <span className="feature-tag">Halloween</span>
+              <span className="feature-tag">Gyroscope-Based</span>
+              <span className="feature-tag">Game Center</span>
+              <span className="feature-tag">Unity</span>
+            </div>
+            <div className="game-images">
+              <img src="/images/qr-code2.png" alt="QR code" className="qr-image" />
+              <a href="https://apple.co/3Ws53fe" target="_blank" rel="noopener noreferrer">
+                <img src="/images/white.svg" alt="Orange logo" className="black-image" />
+              </a>
+            </div>
+            <div className="game-links">
+              <button 
+                className="privacy-link"
+                onClick={() => setIsScaryPrivacyModalOpen(true)}
               >
                 Privacy Policy
               </button>
@@ -87,8 +121,16 @@ const GamesSection = () => {
       </div>
 
       <PrivacyPolicyModal 
-        isOpen={isPrivacyModalOpen} 
-        onClose={() => setIsPrivacyModalOpen(false)} 
+        isOpen={isSnakePrivacyModalOpen} 
+        onClose={() => setIsSnakePrivacyModalOpen(false)} 
+        gameName="Snake Game"
+        lastUpdatedDate="July 7, 2025"
+      />
+      <PrivacyPolicyModal 
+        isOpen={isScaryPrivacyModalOpen} 
+        onClose={() => setIsScaryPrivacyModalOpen(false)} 
+        gameName="Scary Fly"
+        lastUpdatedDate="October 7, 2025"
       />
     </section>
   );
